@@ -1,18 +1,23 @@
 public class PremMatch implements Match{
     int awayGoals;
     int homeGoals;
-    Team homeTeamName;
+    Team homeTeam;
     Team awayTeam;
 
     public PremMatch(Team homeTeamName, Team awayTeam, int awayGoals, int homeGoals){
         this.awayGoals = awayGoals;
         this.homeGoals = homeGoals;
-        this.homeTeamName = homeTeamName;
+        this.homeTeam = homeTeamName;
         this.awayTeam = awayTeam;
+        homeTeam.recordMatchResult(homeGoals, awayGoals);
+        awayTeam.recordMatchResult(awayGoals, homeGoals);
 
 
 
     }
+
+
+
     @Override
     public int getAwayGoals() {
       return awayGoals;
@@ -25,7 +30,7 @@ public class PremMatch implements Match{
 
     @Override
     public Team getAwayTeam() {
-        return homeTeamName;
+        return homeTeam;
     }
 
     @Override

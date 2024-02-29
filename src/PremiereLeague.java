@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class PremiereLeague implements FootbalLeague {
+public class PremiereLeague implements Team {
 
     private String name;
     private int played;
@@ -16,7 +16,10 @@ public class PremiereLeague implements FootbalLeague {
     }
 
 
-    @Override
+
+
+
+        @Override
     public int getWon() {
         return won;
 
@@ -66,32 +69,35 @@ public class PremiereLeague implements FootbalLeague {
 
     }
 
-    @Override
-    public void updateRankings(int rankings) {
 
+    public String getName() {
+        return name;
     }
 
-    public void pointsReturn(int goalsFor, int goalsAgainst){
+
+
+
+    public void recordMatchResult(int goalsFor, int goalsAgainst) {
         played++;
         this.goalsFor += goalsFor;
         this.goalsAgainst += goalsAgainst;
 
-        if (goalsFor > goalsAgainst){
+        if (goalsFor > goalsAgainst) {
             won++;
-             points += 3;
-
-        } else if (goalsFor == goalsAgainst) {
-            drawn++;
-             points += 1;
-        }
-
-        else {
+            points += 3;
+        } else if (goalsFor < goalsAgainst) {
             lost++;
+        } else {
+            drawn++;
+            points++;
         }
     }
 
 
-
-    ArrayList<Team> teamsInCompetition;
     }
+
+
+
+
+
 
