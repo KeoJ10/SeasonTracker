@@ -3,7 +3,7 @@ public class PremTopScorer implements TopScorer{
     int goalsScored;
 
 
-    public void premTopScorer(String name){
+    public PremTopScorer(String name){
         this.name = name;
     }
 
