@@ -20,21 +20,25 @@ public class PremMatch implements Match{
 
     @Override
     public int getAwayGoals() {
-      return awayGoals;
+
+        return awayGoals;
     }
 
     @Override
     public int getHomeGoals() {
+
         return homeGoals;
     }
 
     @Override
     public Team getAwayTeam() {
+
         return homeTeam;
     }
 
     @Override
-    public Team getHomeTeam() {
+    public Team getHomeTeam()
+    {
         return awayTeam;
     }
 }

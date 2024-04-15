@@ -1,11 +1,17 @@
 public class PremTopScorer implements TopScorer{
-    String name;
-    int goalsScored;
+   public String name;
+    public int goalsScored;
 
+    public int left;
+    public int right;
 
-    public PremTopScorer(String name){
+    public PremTopScorer(String name, int left, int right){
         this.name = name;
+        this.left = left;
+        this.right = right;
     }
+
+
 
     public void goalsScoredAdd(){
         goalsScored++;
@@ -19,5 +25,15 @@ public class PremTopScorer implements TopScorer{
     @Override
     public int getGoalsScored() {
         return goalsScored;
+    }
+
+    @Override
+    public int getLeftFoot() {
+        return left;
+    }
+
+    @Override
+    public int getRightFoot() {
+        return right;
     }
 }

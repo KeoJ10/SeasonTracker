@@ -1,40 +1,59 @@
 public class PremTable {
-    private Team homeTeam;
-    private Team awayTeam;
-    private int homeGoals;
-    private int awayGoals;
 
     public static void main(String[] args) {
 
         Team manchesterCity = new PremiereLeague("Manchester City");
         Team liverpool = new PremiereLeague("Liverpool");
         Team chelsea = new PremiereLeague("Chelsea");
+        Team astonVilla = new PremiereLeague("Aston villa");
+        Team tottenHam = new PremiereLeague("Tottenham Hotspurs");
+        Team arsenal = new PremiereLeague("Arsenal");
+        Team westHam = new PremiereLeague("West Ham");
+        Team burnley = new PremiereLeague("Burnley");
+        Team manUnited = new PremiereLeague("Manchester United");
+        Team brighton = new PremiereLeague("Brighton Hove Albion");
+        Team wolves = new PremiereLeague("Wolverhampton");
+        Team brentford = new PremiereLeague("Brentford");
+        Team newcastle = new PremiereLeague("New Castle");
+        Team fulham = new PremiereLeague("Fulham");
+        Team bournemounth = new PremiereLeague("Bournemounth");
+        Team crystalPalace = new PremiereLeague("Crystal Palace");
+        Team everton = new PremiereLeague("Everton");
+        Team forest = new PremiereLeague("Nottingham Forrest");
+        Team luton = new PremiereLeague("Luton");
+        Team sheffield = new PremiereLeague("Sheffield United");
 
 
         Match match1 = new PremMatch(manchesterCity, liverpool, 3, 0);
         Match match2 = new PremMatch(liverpool, chelsea, 0, 2);
-        Match match3 = new PremMatch(chelsea, manchesterCity, 1, 1);
+        Match match3 = new PremMatch(chelsea, manchesterCity, 2, 1);
+        Match match4 = new PremMatch(arsenal, fulham, 0, 4);
+        Match match5 = new PremMatch(luton, sheffield, 2, 3);
+        Match match6 = new PremMatch(newcastle, everton, 1, 3);
 
-        TopScorer salah = new PremTopScorer("Mohamed Salah");
-        TopScorer haaland = new PremTopScorer("Erling Haaland");
-        TopScorer nunez = new PremTopScorer("Darwin Nunez");
-        TopScorer watkins = new PremTopScorer("Ollie Watkins");
-
-        ((PremTopScorer)salah).goalsScoredAdd();
-        ((PremTopScorer)salah).goalsScoredAdd();
-        ((PremTopScorer)salah).goalsScoredAdd();
-        ((PremTopScorer)nunez).goalsScoredAdd();
-        ((PremTopScorer)nunez).goalsScoredAdd();
-        ((PremTopScorer)haaland).goalsScoredAdd();
-        ((PremTopScorer)haaland).goalsScoredAdd();
-        ((PremTopScorer)watkins).goalsScoredAdd();
+        PremTopScorer salah = new PremTopScorer("Mohamed Salah", 2 , 1);
+        PremTopScorer haaland = new PremTopScorer("Erling Haaland", 2,0);
+        PremTopScorer nunez = new PremTopScorer("Darwin Nunez", 1, 1);
+        PremTopScorer watkins = new PremTopScorer("Ollie Watkins", 0, 1);
 
 
 
+        salah.goalsScoredAdd();
+        salah.goalsScoredAdd();
+        salah.goalsScoredAdd();
+        nunez.goalsScoredAdd();
+        nunez.goalsScoredAdd();
+        haaland.goalsScoredAdd();
+        haaland.goalsScoredAdd();
+        watkins.goalsScoredAdd();
 
 
-        premTable(liverpool, manchesterCity , chelsea);
-        topScorerList(salah, haaland, nunez, watkins);
+
+
+
+        premTable(liverpool, arsenal, manchesterCity , chelsea,  astonVilla, tottenHam, manUnited, westHam, brighton, wolves, brentford, newcastle,
+                fulham, bournemounth, crystalPalace, everton, luton, forest , sheffield, burnley);
+        topScorerList(salah, nunez, haaland, watkins);
 
 
 
@@ -46,9 +65,10 @@ public class PremTable {
     public static void premTable(Team... teams) {
         System.out.println("Premier League table:");
         System.out.println("Season 2023-2034");
-        System.out.println("| club | P | W | D | L | GF | GA | GD | PTS | \n");
+        System.out.println("| club      | P | W | D | L | GF | GA | GD | PTS | \n");
+        System.out.println("-------------------------------------------------------");
         for (Team team : teams) {
-            System.out.printf("| %-20s |  %-2d |  %-2d |  %-2d |  %-2d |  %-3d |  %-3d |  %-3d | %-3d |\n",
+            System.out.printf("| %s |  %d |  %d |  %d |  %d |  %d |  %d |  %d | %d |\n",
                     team.getName(),
                     team.getPlayed(),
                     team.getWon(),
@@ -65,10 +85,13 @@ public class PremTable {
     public static void topScorerList(TopScorer... scorer){
         System.out.println("2024 topScorers list");
         System.out.println("---------------------------");
+        System.out.println("                | goals | left | right |");
        for (TopScorer scorers : scorer){
-           System.out.printf("| %-15s | %-2d | \n",
+           System.out.printf("| %s | %d | | %d | %d |\n",
                    scorers.getName(),
-                   scorers.getGoalsScored());
+                   scorers.getGoalsScored(),
+                   scorers.getLeftFoot(),
+                   scorers.getRightFoot());
        }
     }
 }
